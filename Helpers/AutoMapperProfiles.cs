@@ -1,6 +1,6 @@
 using API.DTOs;
 using API.Entities;
-using API.Extension;
+using API.Extension; 
 using AutoMapper;
 
 
@@ -17,6 +17,8 @@ namespace API.Helpers
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CaculateAge()));
             CreateMap<Photo,PhotoDto>();
             CreateMap<MemberUpdateDto, AppUser>();
+            CreateMap<RegistesDto, AppUser>();
+                
         }
     }
 }

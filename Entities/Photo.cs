@@ -12,7 +12,7 @@ namespace API.Entities
 
         public bool IsMain { get; set; }
         
-        public string PublicId{set;get;}
+        public string? PublicId{set;get;}
 
         public AppUser AppUser {set;get;}
 

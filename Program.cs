@@ -18,14 +18,16 @@ var app = builder.Build();
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
-try{
+try
+{
     var context = services.GetRequiredService<DataContext>();
     await context.Database.MigrateAsync();
     await Seed.SeedUsers(context);
-}catch(Exception e)
+}
+catch (Exception e)
 {
     var logger = services.GetRequiredService<ILogger<Program>>();
-    logger.LogError(e,"An error occurred during migration");
+    logger.LogError(e, "An error occurred during migration");
 }
 
 
@@ -34,7 +36,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseCors( x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));   
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 app.UseAuthentication();
 app.UseAuthorization();
 
