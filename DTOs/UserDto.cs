@@ -7,11 +7,11 @@ namespace API.DTOs
 {
     public class UserDto
     {
-        public string Username{set;get;}
-        public string Token{set;get;}
-        public string PhotoUrl { get; set; }
+        public string? Username{set;get;}
+        public string? Token{set;get;}
+        public string? PhotoUrl { get; set; }
 
-        public string KnownAs { get; set; }
-        public string Gender {set;get;}
+        public string? KnownAs { get; set; }
+        public string? Gender {set;get;}
     }
 }
