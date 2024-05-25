@@ -8,7 +8,7 @@ namespace API.Entities
     {
         public int Id {get;set;}
 
-        public string Url {set;get;}
+        public string? Url {set;get;}
 
         public bool IsMain { get; set; }
         
