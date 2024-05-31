@@ -9,8 +9,8 @@ namespace API.Interfaces
     {
         void Update(AppUser user);
 
-        // lưu thay đổi
-        Task<bool> SaveAllAsync();
+        // // lưu thay đổi
+        // Task<bool> SaveAllAsync();
         // trả vô số ng dùng và đồng bộ hóa 
         Task<IEnumerable<AppUser>> GetUsersAsync();
         // nhận ng dùng theo id
@@ -20,6 +20,6 @@ namespace API.Interfaces
         Task<PagedList<MemberDto>>GetMembersAsync(UserParams userParams);
         Task<MemberDto>GetMemberAsync(string username);
         
-
+Task<string> GetUserGender(string username);
     }
 }
