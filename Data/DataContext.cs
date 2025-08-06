@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 // là lớp chính điều phối chức năng Entity Framework cho mô hình dữ liệu
 namespace API.Thing
 {
-    public class DataContext : IdentityDbContext<AppUser, AppRole , int,
+    public class DataContext : IdentityDbContext<AppUser, AppRole, int,
         IdentityUserClaim<int>, AppUserRole, IdentityUserLogin<int>,
         IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
@@ -21,8 +21,8 @@ namespace API.Thing
         public DbSet<Connection> Connections { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
-{
-     base.OnModelCreating(builder);
+        {
+            base.OnModelCreating(builder);
 
             builder.Entity<AppUser>()
                 .HasMany(ur => ur.UserRoles)
@@ -44,13 +44,13 @@ namespace API.Thing
                 .WithMany(l => l.LikedUsers)
                 .HasForeignKey(s => s.SourceUserId)
                 .OnDelete(DeleteBehavior.Cascade);
-            
+
             builder.Entity<UserLike>()
                 .HasOne(s => s.LikedUser)
                 .WithMany(l => l.LikedByUsers)
                 .HasForeignKey(s => s.LikedUserId)
                 .OnDelete(DeleteBehavior.Cascade);
-            
+
             builder.Entity<Message>()
                 .HasOne(u => u.Recipient)
                 .WithMany(m => m.MessagesReceived)
@@ -59,7 +59,7 @@ namespace API.Thing
                 .HasOne(u => u.Sender)
                 .WithMany(m => m.MessagesSent)
                 .OnDelete(DeleteBehavior.Restrict);
-}
+        }
 
     }
 }
